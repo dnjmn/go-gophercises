@@ -1,0 +1,39 @@
+json:
+    json.Unmarshal([]byte, &interface{}) error
+
+html/template:
+
+    // Template is a specialized Template from "text/template" that produces a safe
+    // HTML document fragment.
+    var tmp *template.Template
+
+    // New allocates a new HTML template with the given name.
+    tmp = template.New(name string)
+
+    // Parse parses text as a template body for tmp
+    // Templates can be redefined in successive calls to Parse,
+    // before the first use of Execute on tmp or any associated template.
+    tmp = tmp.Parse(html string)
+
+    // Must is a helper that wraps a call to a function returning (*Template, error)
+    // and panics if the error is non-nil. It is intended for use in variable INITIALIZATIONS
+    // such as
+    //
+    //	var t = template.Must(template.New("name").Parse("html"))
+	tmp = template.Must(tmp)
+
+    func (t *Template) Execute(wr io.Writer, data any) error {
+
+http.Request:
+    r.URL.Path = path after the domain
+
+functional Options:
+    see the code
+
+    type Options func(a *applyOn)
+
+    func WithOption(o Option) Options {
+        return func(a *applyOn) {
+            a.o = o
+        }
+    }
